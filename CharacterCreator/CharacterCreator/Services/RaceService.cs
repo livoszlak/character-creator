@@ -1,20 +1,29 @@
 using CharacterCreator.DataModels;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CharacterCreator.Services
 {
     public class RaceService : ApiService
     {
-        public RaceService() : base()
+        public static async Task<List<RaceNamesModel>> GetRaces()
         {
-        }
-
-        public async Task<List<RaceDataModel>> GetRaceNames()
-        {
+            RaceService raceService = new RaceService();
             string endpoint = "races";
-            var response = await GetAsync<RaceModelWrapper>(endpoint);
+            var response = await raceService.GetAsync<RaceNamesModelWrapper>(endpoint);
             return response.Results;
         }
+        
+        private async Task<RaceDataModel> GetRaceData(Character character)
+        {
+            string endpoint = $"races/{character.Race.ToLower()}";
+            var response = await GetAsync<RaceDataModel>(endpoint);
+            return response;
+        }
+        
+        public static async Task<RaceDataModel> GetRaceDetails(Character character)
+        {
+            RaceService raceService = new RaceService();
+            return await raceService.GetRaceData(character);
+        }
+
     }
 }

@@ -4,14 +4,24 @@ namespace CharacterCreator.Services;
 
 public class ClassService : ApiService
 {
-    public ClassService() : base()
+    public static async Task<List<ClassNamesModel>> GetClasses()
     {
-    }
-
-    public async Task<List<ClassDataModel>> GetClassNames()
-    {
+        ClassService classService = new ClassService();
         string endpoint = "classes";
-        var response = await GetAsync<ClassModelWrapper>(endpoint);
+        var response = await classService.GetAsync<ClassNamesModelWrapper>(endpoint);
         return response.Results;
+    }
+    
+    private async Task<ClassDataModel> GetClassData(Character character)
+    {
+        string endpoint = $"classes/{character.Class.ToLower()}";
+        var response = await GetAsync<ClassDataModel>(endpoint);
+        return response;
+    }
+    
+    public static async Task<ClassDataModel> GetClassDetails(Character character)
+    {
+        ClassService classService = new ClassService();
+        return await classService.GetClassData(character);
     }
 }

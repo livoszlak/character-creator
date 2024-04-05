@@ -4,12 +4,12 @@ namespace CharacterCreator.Services
 {
     public class ApiService
     {
-        protected HttpClient _client;
-        protected string BaseUrl = "https://www.dnd5eapi.co/api/";
+        private readonly HttpClient _client;
+        private readonly string _baseUrl = "https://www.dnd5eapi.co/api/";
 
-        public ApiService()
+        protected ApiService()
         {
-            _client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
+            _client = new HttpClient { BaseAddress = new Uri(_baseUrl) };
         }
 
         protected async Task<T> GetAsync<T>(string endpoint)
