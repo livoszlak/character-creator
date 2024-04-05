@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "PwMW7pvuCPE/zFawMk3ozdpzfNytQFPix1ix8efdPdjrbS7AKYgj63xNH7qQjUSTlVP3tdmscQ8RsWAB7pgaHQ==",
+  "success": true,
+  "projectFilePath": "/Users/lios/Documents/Rider/CharacterCreator/CharacterCreator/CharacterCreator.csproj",
+  "expectedPackageFiles": [
+    "/Users/lios/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/lios/.nuget/packages/spectre.console/0.48.0/spectre.console.0.48.0.nupkg.sha512",
+    "/Users/lios/.nuget/packages/spectre.console.cli/0.48.0/spectre.console.cli.0.48.0.nupkg.sha512",
+    "/Users/lios/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512"
+  ],
+  "logs": []
+}
